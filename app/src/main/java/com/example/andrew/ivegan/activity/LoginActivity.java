@@ -10,6 +10,7 @@ import com.example.andrew.ivegan.R;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginButton;
+    Button registerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(LoginActivity.this, CardListActivity.class);
+                myIntent.putExtra("key", 1); //Optional parameters
+                LoginActivity.this.startActivity(myIntent);
+            }
+        });
+
+        registerButton = findViewById(R.id.registerBut);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 myIntent.putExtra("key", 1); //Optional parameters
                 LoginActivity.this.startActivity(myIntent);
             }

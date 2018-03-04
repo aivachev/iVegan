@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.andrew.ivegan.BlankFragment;
+import com.example.andrew.ivegan.Fragment.BlankFragment;
+import com.example.andrew.ivegan.Fragment.MapFragment;
+import com.example.andrew.ivegan.Fragment.RecyclerViewFragment;
 import com.example.andrew.ivegan.R;
 
 public class CardListActivity extends AppCompatActivity {
@@ -42,6 +44,17 @@ public class CardListActivity extends AppCompatActivity {
         // Теперь, при необходимости, мы можем найти элементы внутри
         // header'а
         ImageView ivHeaderPhoto = headerLayout.findViewById(R.id.imageView);
+
+        Fragment fragment = null;
+        Class fragmentClass = MapFragment.class;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        mDrawer.closeDrawers();
     }
 
     @Override
@@ -72,12 +85,12 @@ public class CardListActivity extends AppCompatActivity {
         // на основе нажатия на элемент навигации
         Fragment fragment = null;
         Class fragmentClass;
-        switch(menuItem.getItemId()) {
+        switch (menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                fragmentClass = MapActivity.class;
+                fragmentClass = RecyclerViewFragment.class;
                 break;
             case R.id.nav_second_fragment:
-                fragmentClass = BlankFragment.class;
+                fragmentClass = MapFragment.class;
                 break;
             case R.id.nav_third_fragment:
                 fragmentClass = BlankFragment.class;

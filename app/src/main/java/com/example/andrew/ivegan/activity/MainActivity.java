@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
-                myIntent.putExtra("key", 1); //Optional parameters
                 MainActivity.this.startActivity(myIntent);
             }
         });
@@ -32,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, MapActivity.class);
-                myIntent.putExtra("key", 1); //Optional parameters
+                Intent myIntent = new Intent(MainActivity.this, RegisterActivity.class);
                 MainActivity.this.startActivity(myIntent);
             }
         });
