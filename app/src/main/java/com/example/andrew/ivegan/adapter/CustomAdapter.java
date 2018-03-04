@@ -23,7 +23,6 @@ package com.example.andrew.ivegan.adapter;
 import android.util.Log;
 import android.view.ViewGroup;
 
-import com.example.andrew.ivegan.R;
 
         import android.support.v7.widget.RecyclerView;
         import android.view.LayoutInflater;

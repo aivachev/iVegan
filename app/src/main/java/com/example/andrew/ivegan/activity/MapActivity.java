@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.SearchView;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
-import com.example.andrew.ivegan.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -61,21 +60,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f));
                 }
             }
-
             @Override
-            public void onStatusChanged(String s, int i, Bundle bundle) {
-
-            }
-
+            public void onStatusChanged(String s, int i, Bundle bundle) {}
             @Override
-            public void onProviderEnabled(String s) {
-
-            }
-
+            public void onProviderEnabled(String s) {}
             @Override
-            public void onProviderDisabled(String s) {
-
-            }
+            public void onProviderDisabled(String s) {}
         };
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -97,15 +87,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     .title("Marker in SPB"));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLastLocation, 15f));
         }
-
-//        LatLng sydney = new LatLng(-33.867, 151.206);
-//        googleMap.setMyLocationEnabled(true);
-//        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
-//
-//        googleMap.addMarker(new MarkerOptions()
-//                .title("Sydney")
-//                .snippet("The most populous city in Australia.")
-//                .position(sydney));
     }
 
     @Override

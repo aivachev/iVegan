@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.andrew.ivegan.R;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginButton;

@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import com.example.andrew.ivegan.Fragment.BlankFragment;
 import com.example.andrew.ivegan.Fragment.MapFragment;
 import com.example.andrew.ivegan.Fragment.RecyclerViewFragment;
-import com.example.andrew.ivegan.R;
 
 public class CardListActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
@@ -54,7 +53,6 @@ public class CardListActivity extends AppCompatActivity {
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-        mDrawer.closeDrawers();
     }
 
     @Override

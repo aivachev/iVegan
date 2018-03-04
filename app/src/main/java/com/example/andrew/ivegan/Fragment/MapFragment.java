@@ -17,13 +17,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.arlib.floatingsearchview.FloatingSearchView;
-import com.example.andrew.ivegan.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -66,23 +65,14 @@ public class MapFragment extends Fragment {
                             googleMap.addMarker(new MarkerOptions().position(userLocation).title("Your position"));
                             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f));
                         }
-                        setData(mMap);
+                        setData2(mMap);
                     }
-
                     @Override
-                    public void onStatusChanged(String s, int i, Bundle bundle) {
-
-                    }
-
+                    public void onStatusChanged(String s, int i, Bundle bundle) {}
                     @Override
-                    public void onProviderEnabled(String s) {
-
-                    }
-
+                    public void onProviderEnabled(String s) {}
                     @Override
-                    public void onProviderDisabled(String s) {
-
-                    }
+                    public void onProviderDisabled(String s) {}
                 };
 
                 if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
@@ -136,7 +126,7 @@ public class MapFragment extends Fragment {
                     == PackageManager.PERMISSION_GRANTED) {
 
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                        200, 2f, locationListener);
+                        10000, 30f, locationListener);
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -160,6 +150,96 @@ public class MapFragment extends Fragment {
                 .title("Marker in SPB"));
     }
 
+    //59.987704, 30.315207
+    //59.973513, 30.347761
+    //59.955812, 30.351023
+    //59.966526, 30.324594
+    //59.957675, 30.328886
+    //59.972474, 30.311548
+
+    public void setData2(GoogleMap mMap) {
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.987704, 30.315207))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.one)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.973513, 30.347761))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.two)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.955812, 30.351023))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.three)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.966526, 30.324594))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.one)));
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.957675, 30.328886))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.two)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.972474, 30.311548))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.three)));
+
+
+
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.963473, 30.330044))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.one)));
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.968327, 30.344506))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.two)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.961066, 30.338283))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.three)));
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.966526, 30.324594))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.one)));
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.955415, 30.342875))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.two)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.955843, 30.325794))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.three)));
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.958034, 30.316524))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.one)));
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.954123, 30.317125))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.two)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(59.951243, 30.320387))
+                .title("Marker in SPB")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.three)));
+
+        //59.963473, 30.330044
+        //59.968327, 30.344506
+        //59.961066, 30.338283
+        //59.955415, 30.342875
+        //59.956252, 30.333519
+        //59.955843, 30.325794
+        //59.958034, 30.316524
+        //59.954123, 30.317125
+        //59.951243, 30.320387
+    }
     @Override
     public void onResume() {
         super.onResume();

@@ -4,16 +4,16 @@
         <item
             android:id="@+id/nav_first_fragment"
             android:icon="@drawable/common_google_signin_btn_icon_dark"
-            android:title="First"
+            android:title="Главный экран"
             android:checked="true"/>
         <item
             android:id="@+id/nav_second_fragment"
             android:icon="@drawable/common_google_signin_btn_icon_dark"
-            android:title="Second" />
+            android:title="Карта" />
         <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/common_google_signin_btn_icon_dark"
-            android:title="Third" />
+            android:title="Рекомендации" />
     </group>
 
     <item android:title="Sub items">
@@ -21,10 +21,10 @@
             <group android:checkableBehavior="single">
                 <item
                     android:icon="@drawable/common_google_signin_btn_icon_dark"
-                    android:title="Sub item 1" />
+                    android:title="Информация о приложении" />
                 <item
                     android:icon="@drawable/common_google_signin_btn_icon_dark"
-                    android:title="Sub item 2" />
+                    android:title="Контакты" />
             </group>
         </menu>
     </item>
