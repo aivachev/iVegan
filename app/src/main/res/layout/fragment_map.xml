@@ -16,7 +16,7 @@
         app:floatingSearch_searchBarMarginLeft="10dp"
         app:floatingSearch_searchBarMarginTop="10dp"
         app:floatingSearch_searchBarMarginRight="10dp"
-        app:floatingSearch_searchHint="Search..."
+        app:floatingSearch_searchHint="@string/hintSearch"
         app:floatingSearch_suggestionsListAnimDuration="250"
         app:floatingSearch_showSearchKey="false"
         app:floatingSearch_leftActionMode="showHamburger"

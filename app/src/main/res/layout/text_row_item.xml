@@ -9,12 +9,14 @@
     >
 
     <ImageView
+        android:id="@+id/heroPhoto"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
     <TextView
         android:id="@+id/contact_name"
+        android:textSize="30sp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -22,6 +24,7 @@
         />
 
     <ImageView
+        android:id="@+id/imageViewHeart"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />

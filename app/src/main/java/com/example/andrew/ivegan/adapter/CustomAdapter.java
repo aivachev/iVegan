@@ -23,12 +23,11 @@ package com.example.andrew.ivegan.adapter;
 import android.util.Log;
 import android.view.ViewGroup;
 
-
-        import android.support.v7.widget.RecyclerView;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.TextView;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.andrew.ivegan.R;
 
@@ -45,6 +44,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
+        private final ImageView imageView;
+        private final ImageView imageViewHeart;
 
         public ViewHolder(View v) {
             super(v);
@@ -56,10 +57,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 }
             });
             textView = (TextView) v.findViewById(R.id.contact_name);
+            imageView = (ImageView) v.findViewById(R.id.heroPhoto);
+            imageViewHeart = (ImageView) v.findViewById(R.id.imageViewHeart);
         }
 
+        public ImageView getImageViewHeart() {
+            return imageViewHeart;
+        }
         public TextView getTextView() {
             return textView;
+        }
+        public ImageView getImageView() {
+            return imageView;
         }
     }
 
@@ -70,6 +79,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      */
     public CustomAdapter(String[] dataSet) {
         mDataSet = dataSet;
+
     }
 
     // Create new views (invoked by the layout manager)
@@ -90,6 +100,30 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(mDataSet[position]);
+        if (position == 0) {
+            viewHolder.getImageView().setImageResource(R.drawable.ger);
+        } else if (position == 1) {
+            viewHolder.getImageView().setImageResource(R.drawable.ron);
+        } else if (position == 2) {
+            viewHolder.getImageView().setImageResource(R.drawable.har);
+        }
+        viewHolder.getImageViewHeart().setImageResource(R.drawable.h1);
+        viewHolder.getImageViewHeart().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageView imageView = (ImageView) view;
+                imageView.setImageResource(R.drawable.h2);
+            }
+        });
+
+        viewHolder.getImageViewHeart().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ImageView imageView = (ImageView) view;
+                imageView.setImageResource(R.drawable.h1);
+                return true;
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)

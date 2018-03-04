@@ -13,28 +13,42 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
+import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.example.andrew.ivegan.R;
+import com.example.andrew.ivegan.data.DataHelper;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.Map;
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import static android.content.ContentValues.TAG;
+
 
 public class MapFragment extends Fragment {
     MapView mMapView;
     private GoogleMap googleMap;
     LocationManager locationManager;
     LocationListener locationListener;
+    FloatingSearchView floatingSearchView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -117,6 +131,19 @@ public class MapFragment extends Fragment {
             }
         });
 
+        floatingSearchView = (FloatingSearchView) rootView.findViewById(R.id.floating_search_view);
+
+        floatingSearchView.setOnSearchListener(new FloatingSearchView.OnSearchListener() {
+            @Override
+            public void onSuggestionClicked(SearchSuggestion searchSuggestion) {
+            }
+
+            @Override
+            public void onSearchAction(String currentQuery) {
+
+            }
+        });
+
         return rootView;
     }
 
@@ -133,6 +160,32 @@ public class MapFragment extends Fragment {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    public void getData() {
+        OkHttpClient client = new OkHttpClient();
+        Request request1 = new Request.Builder()
+                .url("http://deltax.pythonanywhere.com/api/gps?food='1'")
+                .build();
+        Request request2 = new Request.Builder()
+                .url("http://deltax.pythonanywhere.com/api/gps?food='2'")
+                .build();
+        Request request3 = new Request.Builder()
+                .url("http://deltax.pythonanywhere.com/api/gps?food='3'")
+                .build();
+        client.newCall(request1).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "onCreateView: " + response.message());
+                }
+            }
+        });
+
+    }
     public void setData(GoogleMap mMap) {
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(59.979815, 30.298685))
