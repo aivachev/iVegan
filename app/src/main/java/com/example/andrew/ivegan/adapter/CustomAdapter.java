@@ -30,6 +30,8 @@ import android.view.ViewGroup;
         import android.view.ViewGroup;
         import android.widget.TextView;
 
+import com.example.andrew.ivegan.R;
+
 /**
  * Provide views to RecyclerView with data from mDataSet.
  */
